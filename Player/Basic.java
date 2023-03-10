@@ -1,7 +1,6 @@
 package Player;
 
-public class Tank {
-
+public class Basic {
     public String name;
     public int health;
     int minDamage;
@@ -15,7 +14,7 @@ public class Tank {
     int weaponSlot;
 
 
-    public Tank(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance,int armorSlot,int weaponSlot) {
+    public Basic(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance,int armorSlot,int weaponSlot) {
         this.name = name;
         this.health = health;
         this.minDamage= minDamage;
@@ -28,5 +27,4 @@ public class Tank {
         this.armorSlot= armorSlot;
         this.weaponSlot=weaponSlot;
     }
-
 }
