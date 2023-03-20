@@ -1,6 +1,6 @@
 package Player;
 
-public class Basic {
+public class Hero {
     public String name;
     public int health;
     int minDamage;
@@ -14,7 +14,7 @@ public class Basic {
     int weaponSlot;
 
 
-    public Basic(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance,int armorSlot,int weaponSlot) {
+    public Hero(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance,int armorSlot,int weaponSlot) {
         this.name = name;
         this.health = health;
         this.minDamage= minDamage;
@@ -26,8 +26,5 @@ public class Basic {
         this.runChance=runChance;
         this.armorSlot= armorSlot;
         this.weaponSlot=weaponSlot;
-    }
-
-    public Basic() {
     }
 }
