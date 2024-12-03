@@ -14,20 +14,43 @@ public class Archer {
     int weaponSlot;
 
 
-    public Archer(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int armorSlot, int weaponSlot) {
-        this.name = name;
-        this.health = health;
-        this.minDamage = minDamage;
-        this.maxDamage = maxDamage;
-        this.missChances = missChances;
-        this.criticalRate = criticalRate;
-        this.speed = speed;
-        this.numberOfPotions = numberOfPotions;
-        this.runChance = runChance;
-        this.armorSlot = armorSlot;
-        this.weaponSlot = weaponSlot;
+    public Archer() {
+        this.name = "Archer";
+        this.health = 75;
+        this.minDamage = 5;
+        this.maxDamage = 10;
+        this.missChances = 30;
+        this.criticalRate = 25;
+        this.speed = 20;
+        this.numberOfPotions = 3;
+        this.runChance = 40;
+        this.armorSlot = 1;
+        this.weaponSlot = 1;
     }
 
-    public Archer() {
+    private int calculateDamage() {
+        if(Math.random()* 100 < missChances){
+            System.out.println("Your arrows missed!");
+            return 0;
+
+        }
+        int damage = (int)(Math.random() * (maxDamage-minDamage+1))+minDamage;
+        if (Math.random()*100 < criticalRate){
+            damage *= 2;
+            System.out.println("HeadShot!");
+
+
+        }
+
+
+        return damage;
     }
+    public int attack() {
+        int damage = calculateDamage();
+        System.out.println(name + " dealt " + damage + " damage!");
+        return damage;
+    }
+
 }
+
+
