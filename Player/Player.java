@@ -63,8 +63,21 @@ return damage;
         }
     }
 
+    public void takeDamage(int damage){
+       if (damage <0){
+           System.out.println(name + "took no damage");
+           return;
+       }
+       health -= damage;
+       if (health <= 0){
+           health= 0;
+       }
+
+       }
+
     public abstract void specialAttack();
 }
+
 
 
 

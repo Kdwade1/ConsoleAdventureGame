@@ -1,31 +1,15 @@
 package Player;
 
-public class Basic {
-    public String name;
-    public int health;
-    int minDamage;
-    int maxDamage;
-    int missChances;
-    int criticalRate;
-    int speed;
-    int numberOfPotions;
-    int runChance;
-    int armorSlot;
-    int weaponSlot;
+public class Basic extends Player {
 
+    public Basic(String name) {
+        super(name + " The fool", 25, 25, 2, 7, 30, 50, 20, 1, 75);
+    }
 
-    public Basic(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int armorSlot, int weaponSlot) {
-        this.name = name;
-        this.health = health;
-        this.minDamage = minDamage;
-        this.maxDamage = maxDamage;
-        this.missChances = missChances;
-        this.criticalRate = criticalRate;
-        this.speed = speed;
-        this.numberOfPotions = numberOfPotions;
-        this.runChance = runChance;
-        this.armorSlot = armorSlot;
-        this.weaponSlot = weaponSlot;
+    @Override
+    public void specialAttack() {
+        System.out.println(name + "  throws a bomb!");
+        int damage = calculateDamage() *3;
     }
 }
 
