@@ -1,30 +1,23 @@
 package Player;
 
-public class Hero {
-    public String name;
-    public int health;
-    int minDamage;
-    int maxDamage;
-    int missChances;
-    int criticalRate;
-    int speed;
-    int numberOfPotions;
-    int runChance;
-    int armorSlot;
-    int weaponSlot;
+public class Hero extends Player {
+    private  boolean isCharging; /// using
+    private int chargeDamage;
 
 
-    public Hero(String name, int health, int minDamage, int maxDamage, int missChances, int criticalRate, int speed, int numberOfPotions, int runChance,int armorSlot,int weaponSlot) {
-        this.name = name;
-        this.health = health;
-        this.minDamage= minDamage;
-        this.maxDamage =maxDamage;
-        this.missChances= missChances;
-        this.criticalRate=criticalRate;
-        this.speed= speed;
-        this.numberOfPotions=numberOfPotions;
-        this.runChance=runChance;
-        this.armorSlot= armorSlot;
-        this.weaponSlot=weaponSlot;
+    public Hero(String name) {
+        super(name + " the Hero", 200, 200, 20, 100, 10, 50, 50, 5, 0);
+        this.isCharging = false;
+        this.chargeDamage=0;
+
+    }
+
+    @Override
+    public void specialAttack() {
+        if(isCharging){
+            System.out.println(name + "is preparing a devastating attack.");
+
+        }
+
     }
 }
