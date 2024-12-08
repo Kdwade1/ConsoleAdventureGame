@@ -11,9 +11,11 @@ public abstract class Player {
     int speed;
     int numberOfPotions;
     int runChance;
+    int specialMeter;
+    int maxSpecialMeter;
 // constructor
     public Player(String name, int health, int maxHealth, int minDamage, int maxDamage,
-                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance) {
+                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;
@@ -24,6 +26,8 @@ public abstract class Player {
         this.speed = speed;
         this.numberOfPotions = numberOfPotions;
         this.runChance = runChance;
+        this.specialMeter = specialMeter;
+        this.maxSpecialMeter = maxSpecialMeter;
     }
 //calculate the actual damage
  protected int calculateDamage() {
@@ -62,7 +66,7 @@ return damage;
             System.out.println(name + " has no potions left!");
         }
     }
-
+//calculates getting hit
     public void takeDamage(int damage){
        if (damage <0){
            System.out.println(name + "took no damage");
@@ -74,9 +78,21 @@ return damage;
        }
 
        }
+    public void buildSpecialMeter(int amount){
+        specialMeter += amount;
+        if (specialMeter > maxSpecialMeter) {
+            specialMeter = maxSpecialMeter;
+        }
+        System.out.println(name+"s special meter:"+ specialMeter +"/"+maxSpecialMeter );
+
+    }
 
     public abstract void specialAttack();
+
+
 }
+
+
 
 
 

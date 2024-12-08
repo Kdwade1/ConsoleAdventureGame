@@ -32,8 +32,9 @@ public class Hero extends Player {
     public void takeDamage(int damage) {
         if(isCharging){
             double chargeDamageMultiplier = 1.5;
-            damage*= chargeDamageMultiplier;
+            int amplifiedDamage = (int) (chargeDamage * chargeDamageMultiplier);
             System.out.println("Hero is vulnerable. Hero takes " + damage + " damage");
+            damage += amplifiedDamage;
         }
         super.takeDamage(damage);
     }
