@@ -1,13 +1,15 @@
 import Player.*;
 
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class GameFrame {
-    static Tank tank;
-    static Archer archer;
-    static Warrior warrior;
-    static Basic basic;
-    static Hero hero;
+    private Player player;
+    private Scanner scanner= new Scanner(System.in);
+
+
+
+
 
 
     boolean running=true;
@@ -23,6 +25,7 @@ public class GameFrame {
     }
 
     public static void main(String[] args) {
+
 
 //        while(running){
 //            System.out.println("------------------------------");
