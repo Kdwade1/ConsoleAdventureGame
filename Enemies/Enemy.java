@@ -32,8 +32,9 @@ package Enemies;
             this.isBoss = isBoss;
         }
         protected int calculateDamage() {
+            System.out.println("The "+ name + "attacks!");
             if (Math.random() * 100 < missChances) {
-                System.out.println("The "+ name + "attacks!");
+
                 return 0;
 
             }
@@ -52,6 +53,23 @@ package Enemies;
             System.out.println(name + " dealt " + damage + " damage!");
             return damage;
         }
+
+        public void takeDamage(int damage){
+
+            int reducedDamage =Math.max(damage-armorValue,0);
+            if (damage <0){
+                System.out.println(name + "took no damage");
+                return;
+            }
+            health -= reducedDamage;
+            if()
+            if (health <= 0){
+                health= 0;
+                System.out.println(name+" has been slain");
+            }
+
+        }
+
 
     }
 
