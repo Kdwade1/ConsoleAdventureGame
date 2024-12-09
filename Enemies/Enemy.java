@@ -57,12 +57,15 @@ package Enemies;
         public void takeDamage(int damage){
 
             int reducedDamage =Math.max(damage-armorValue,0);
+            if(reducedDamage ==0){
+                reducedDamage=1;
+            }
             if (damage <0){
                 System.out.println(name + "took no damage");
                 return;
             }
             health -= reducedDamage;
-            if()
+
             if (health <= 0){
                 health= 0;
                 System.out.println(name+" has been slain");
