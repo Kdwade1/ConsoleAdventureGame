@@ -2,7 +2,7 @@ package Player;
 
 public class Archer extends Player{
     public Archer(String name) {
-        super(name + " The Archer", 75, 75, 5, 10, 30,40, 30, 3, 65,1,4);
+        super(name + " The Archer", 75, 75, 5, 10, 30,40, 30, 3, 65,1,4,5);
     }
 
     @Override

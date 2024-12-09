@@ -13,9 +13,10 @@ public abstract class Player {
     int runChance;
     int specialMeter;
     int maxSpecialMeter;
+    int inventorySlot;
 // constructor
     public Player(String name, int health, int maxHealth, int minDamage, int maxDamage,
-                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter) {
+                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;
@@ -28,6 +29,7 @@ public abstract class Player {
         this.runChance = runChance;
         this.specialMeter = specialMeter;
         this.maxSpecialMeter = maxSpecialMeter;
+        this.inventorySlot = inventorySlot;
     }
 //calculate the actual damage
  protected int calculateDamage() {
