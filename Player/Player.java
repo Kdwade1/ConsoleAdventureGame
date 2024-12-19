@@ -9,7 +9,7 @@ public abstract class Player {
     int missChances;
     int criticalRate;
     int speed;
-    int numberOfPotions;
+    private int numberOfPotions;
     int runChance;
     int specialMeter;
     int maxSpecialMeter;
@@ -30,6 +30,17 @@ public abstract class Player {
         this.specialMeter = specialMeter;
         this.maxSpecialMeter = maxSpecialMeter;
         this.inventorySlot = inventorySlot;
+    }
+
+    public int getNumberOfPotions(){
+        return numberOfPotions;
+    }
+    public void setNumberOfPotions(int numberOfPotions){
+        if(numberOfPotions <0){
+            this.numberOfPotions = 0;
+        }else{
+            this.numberOfPotions = numberOfPotions;
+        }
     }
 //calculate the actual damage
  protected int calculateDamage() {

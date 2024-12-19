@@ -25,9 +25,11 @@ public class GameFrame {
     public static void main(String[] args) {
         GameFrame game = new GameFrame();
         game.startGame();
+
     }
 
     public void startGame() {
+        Scanner in = new Scanner(System.in);
         slowPrint("You come across a mysterious dungeon that you found during your travels. Before your adventure begins, we need to know exactly who you are.\n");
 
         System.out.print("What is your name, you deviant? ");
@@ -44,6 +46,26 @@ public class GameFrame {
         player.usePotion();
         player.takeDamage(15);
 
-        slowPrint("Test complete for Basic. End of demo.\n");
+        System.out.println("Shall you enter?...(Y/N)");
+        String confirm = in.nextLine().toLowerCase();
+
+        switch (confirm) {
+            case "y" -> {
+                slowPrint("Fine...Be that way.......\n");
+            }
+            case "n" -> {
+                System.out.println("Thank you for listening!");
+                System.exit(0);
+
+            }
+            default -> {
+                System.out.println("Funny guy eh....");
+                player.setNumberOfPotions(0 ) ;
+                System.out.println("There you get no potions!");
+
+            }
+
+
+        }
     }
 }
