@@ -1,3 +1,4 @@
+/*
 package Enemies;
 
 public class Witch {
@@ -40,3 +41,4 @@ public class Witch {
     public Witch() {
     }
 }
+*/

@@ -3,7 +3,7 @@ package Player;
 public class Basic extends Player {
 
     public Basic(String name) {
-        super(name + " The fool", 25, 25, 2, 7, 30, 50, 20, 1, 75,1,3);
+        super(name + " The fool", 25, 25, 2, 7, 30, 50, 20, 1, 75,1,3,2);
     }
 
     @Override

@@ -6,7 +6,7 @@ public class Hero extends Player {
 
 
     public Hero(String name) {
-        super(name + " the Hero", 200, 200, 20, 100, 10, 50, 50, 5, 0);
+        super(name + " the Hero", 200, 200, 20, 100, 10, 50, 50, 5, 0,1,1,1);
         this.isCharging = false;
         this.chargeDamage = 0;
 

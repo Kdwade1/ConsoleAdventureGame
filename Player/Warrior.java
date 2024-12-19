@@ -1,3 +1,4 @@
+/*
 package Player;
 
 public class Warrior {
@@ -28,3 +29,4 @@ public class Warrior {
         this.weaponSlot=weaponSlot;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package Enemies;
 
 public class Zombie {
@@ -40,3 +41,4 @@ public class Zombie {
     public Zombie() {
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package Enemies;
 
 public class Ghost {
@@ -40,3 +41,4 @@ public class Ghost {
     public Ghost() {
     }
 }
+*/

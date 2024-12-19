@@ -1,3 +1,4 @@
+/*
 package Player;
 
 public class Archer extends Player{
@@ -10,4 +11,4 @@ public class Archer extends Player{
         System.out.println(name+ "fires a powerful shot");
        int damage = calculateDamage() * 2;
     }
-}
+}*/
