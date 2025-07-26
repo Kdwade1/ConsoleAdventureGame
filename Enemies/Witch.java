@@ -1,44 +1,11 @@
-/*
+
 package Enemies;
 
-public class Witch {
-    String name;
-    int Health;
-    int minDps;
-    int maxDps;
-    int maxSpeed;
-    int minSpeed;
-    int exp;
-    int randomChanceRate;
-    int potionDropRate;
-    int missChances;
-    int criticalRate;
+public class Witch extends Enemy {
 
-    public Witch( String name ,int Health, int minDps, int maxDps, int maxSpeed, int minSpeed ,int exp ,int randomChanceRate,int potionDropRate, int missChances ,int criticalRate){
-
-        this.name=name;
-        this.Health =Health;
-        this.minDps=minDps;
-        this.maxDps=maxDps;
-        this.criticalRate=criticalRate;
-        this.exp=exp;
-        this.maxSpeed=maxSpeed;
-        this.minSpeed=minSpeed;
-        this.randomChanceRate=randomChanceRate;
-        this.potionDropRate= potionDropRate;
-        this.missChances= missChances;
-
-    }
-
-    @Override
-    public String toString() {
-        return "enemy{" +
-                "name='" + name + '\'' +
-                ", Health=" + Health +
-                '}';
-    }
 
     public Witch() {
+        super(30,0,40,10,10,15,20,10,5,"The Witch",20,10,false );
     }
 }
-*/
+

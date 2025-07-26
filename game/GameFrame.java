@@ -3,6 +3,9 @@ package game;
 import Enemies.Enemy;
 import Player.Basic;
 import Enemies.Bandit;
+import Enemies.Zombie;
+import Enemies.Witch;
+import Enemies.Ghost;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +15,14 @@ public class GameFrame {
     private Basic player; // Use Basic directly for testing
     private Scanner scanner = new Scanner(System.in);
     private boolean running = true;
+    private final List<Enemy>enemyPrototype =List.of(
+            new Bandit(),
+            new Zombie(),
+            new Witch(),
+            new Ghost()
+
+
+    );
 
     public static void slowPrint(String output) {
         for (int i = 0; i < output.length(); i++) {

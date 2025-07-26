@@ -1,44 +1,26 @@
-/*
+
 package Enemies;
 
-public class Ghost {
-    String name;
-    int Health;
-    int minDps;
-    int maxDps;
-    int maxSpeed;
-    int minSpeed;
-    int exp;
-    int randomChanceRate;
-    int potionDropRate;
-    int missChances;
-    int criticalRate;
-
-    public Ghost( String name ,int Health, int minDps, int maxDps, int maxSpeed, int minSpeed ,int exp ,int randomChanceRate,int potionDropRate, int missChances ,int criticalRate){
-
-        this.name=name;
-        this.Health =Health;
-        this.minDps=minDps;
-        this.maxDps=maxDps;
-        this.criticalRate=criticalRate;
-        this.exp=exp;
-        this.maxSpeed=maxSpeed;
-        this.minSpeed=minSpeed;
-        this.randomChanceRate=randomChanceRate;
-        this.potionDropRate= potionDropRate;
-        this.missChances= missChances;
-
-    }
-
-    @Override
-    public String toString() {
-        return "enemy{" +
-                "name='" + name + '\'' +
-                ", Health=" + Health +
-                '}';
-    }
+public class Ghost extends Enemy {
 
     public Ghost() {
+    super(
+            40,
+            50,
+            25,
+            60,
+18,
+            60,
+            70,
+            10,
+            10,
+            "Ghost",
+            1,
+            1,
+            false
+
+
+            );
     }
 }
-*/
+

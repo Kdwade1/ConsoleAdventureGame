@@ -14,12 +14,12 @@ public abstract class Enemy {
     int criticalRate;
     int speed;
     int dropChance;
-    int randomChanceRate;
+    int encounterChance;
     int exp;
     int armorValue;
     boolean isBoss;
 
-    public Enemy(int criticalRate, int armorValue, int dropChance, int exp, int maxDamage, int health, int maxHealth, int missChances, int minDamage, String name, int speed, int randomChanceRate, boolean isBoss) {
+    public Enemy(int criticalRate, int armorValue, int dropChance, int exp, int maxDamage, int health, int maxHealth, int missChances, int minDamage, String name, int speed, int encounterChance, boolean isBoss) {
         this.criticalRate = criticalRate;
         this.dropChance = dropChance;
         this.exp = exp;
@@ -28,9 +28,9 @@ public abstract class Enemy {
         this.maxHealth = maxHealth;
         this.missChances = missChances;
         this.minDamage = minDamage;
+        this.encounterChance = encounterChance;
         this.name = name;
         this.speed = speed;
-        this.randomChanceRate = randomChanceRate;
         this.armorValue = armorValue;
         this.isBoss = isBoss;
     }
@@ -83,7 +83,7 @@ public abstract class Enemy {
             System.out.println(name + " dropped");
             loot.add("potion");
         }
-        if (Math.random() * 100 < dropChance / 4) {
+        if (Math.random() * 100 < (double) dropChance / 4) {
             loot.add("rare weapon");
         }
         return loot;
@@ -107,6 +107,9 @@ public abstract class Enemy {
     }
     public boolean isAlive() {
         return health > 0;
+    }
+    public int getEncounterChance() {
+        return encounterChance;
     }
 
 }

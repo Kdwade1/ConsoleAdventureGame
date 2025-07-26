@@ -1,44 +1,12 @@
-/*
+
 package Enemies;
 
-public class Zombie {
-    String name;
-    int Health;
-    int minDps;
-    int maxDps;
-    int maxSpeed;
-    int minSpeed;
-    int exp;
-    int randomChanceRate;
-    int potionDropRate;
-    int missChances;
-    int criticalRate;
-
-    public Zombie( String name ,int Health, int minDps, int maxDps, int maxSpeed, int minSpeed ,int exp ,int randomChanceRate,int potionDropRate, int missChances ,int criticalRate){
-
-        this.name=name;
-        this.Health =Health;
-        this.minDps=minDps;
-        this.maxDps=maxDps;
-        this.criticalRate=criticalRate;
-        this.exp=exp;
-        this.maxSpeed=maxSpeed;
-        this.minSpeed=minSpeed;
-        this.randomChanceRate=randomChanceRate;
-        this.potionDropRate= potionDropRate;
-        this.missChances= missChances;
-
-    }
-
-    @Override
-    public String toString() {
-        return "enemy{" +
-                "name='" + name + '\'' +
-                ", Health=" + Health +
-                '}';
-    }
-
+public class Zombie extends Enemy {
     public Zombie() {
+        super(1,0,2,5,5,20,27,10,1,"Zombie",5,40,false);
+
     }
+
+
 }
-*/
+
