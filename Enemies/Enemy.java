@@ -34,6 +34,15 @@ public abstract class Enemy {
         this.armorValue = armorValue;
         this.isBoss = isBoss;
     }
+    public String getName() {
+        return name;
+    }
+    public int getHealth() {
+        return health;
+    }
+    public int getMaxHealth() {
+        return maxHealth;
+    }
 
     protected int calculateDamage() {
         System.out.println("The " + name + "attacks!");
@@ -95,6 +104,9 @@ public abstract class Enemy {
 
         }
 
+    }
+    public boolean isAlive() {
+        return health > 0;
     }
 
 }

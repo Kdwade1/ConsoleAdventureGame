@@ -99,6 +99,15 @@ return damage;
         System.out.println(name+"s special meter:"+ specialMeter +"/"+maxSpecialMeter );
 
     }
+    public String getName(){
+        return name;
+    }
+    public int getHealth(){
+        return health;
+    }
+    public int getMaxHealth(){
+        return maxHealth;
+    }
 
     public abstract void specialAttack();
 

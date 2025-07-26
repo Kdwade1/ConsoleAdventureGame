@@ -1,7 +1,10 @@
 package game;
 
+import Enemies.Enemy;
 import Player.Basic;
+import Enemies.Bandit;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +18,7 @@ public class GameFrame {
             char c = output.charAt(i);
             System.out.print(c);
             try {
-                TimeUnit.MILLISECONDS.sleep(30);
+                TimeUnit.MILLISECONDS.sleep(10);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -43,8 +46,8 @@ public class GameFrame {
         slowPrint("You are now " + player.name + " with " + player.health + " health!\n");
 
         // Simulate actions with Basic player
-        player.usePotion();
-        player.takeDamage(15);
+//        player.usePotion();
+//        player.takeDamage(15);
 
         System.out.println("Shall you enter?...(Y/N)");
         String confirm = in.nextLine().toLowerCase();
@@ -52,6 +55,8 @@ public class GameFrame {
         switch (confirm) {
             case "y" -> {
                 slowPrint("Fine...Be that way.......\n");
+                Enemy firstEnemy = new Bandit();
+                battle(firstEnemy);
             }
             case "n" -> {
                 System.out.println("Thank you for listening!");
@@ -60,12 +65,56 @@ public class GameFrame {
             }
             default -> {
                 System.out.println("Funny guy eh....");
-                player.setNumberOfPotions(0 ) ;
+                player.setNumberOfPotions(0);
                 System.out.println("There you get no potions!");
+                Enemy firstEnemy = new Bandit();
+                battle(firstEnemy);
 
             }
 
 
+        }
+
+    }
+
+    public void battle(Enemy enemy) {
+        slowPrint(" Oh not " + enemy.getName() + " appeared");
+        while (player.getHealth() > 0 && enemy.isAlive()) {
+            System.out.println("\n-------------------------");
+            System.out.println("Your HP: " + player.getHealth());
+            System.out.println(enemy.getName() + " HP: " + enemy.getHealth());
+            System.out.println("-------------------------");
+
+            System.out.println("Choose your action: [A]ttack or [P]otion");
+            String input = scanner.nextLine().toLowerCase();
+            switch (input) {
+                case "a" -> {
+                    int damage = player.attack();
+                    enemy.takeDamage(damage);
+                }
+                case "p" -> player.usePotion();
+                default -> System.out.println("I guess your going to do nothing... weird");
+            }
+            if (enemy.isAlive()) {
+                int enemyDamage = enemy.attack();
+                player.takeDamage(enemyDamage);
+            }
+
+
+                }
+        if (player.getHealth() <= 0) {
+            System.out.println("Oh what a shame....");
+            System.exit(0);
+        } else {
+            slowPrint("You defeated the " + enemy.getName() + "!\n");
+            List<String> loots = enemy.dropLoots();
+            if (loots.isEmpty()) {
+                System.out.println("The enemy dropped nothing.");
+            } else {
+                for (String item : loots) {
+                    System.out.println("Looted: " + item);
+                }
+            }
         }
     }
 }
