@@ -40,6 +40,23 @@ public abstract class Enemy {
     public int getMaxHealth() {
         return maxHealth;
     }
+    public int getMinDamage() {return minDamage;}
+    public int getMaxDamage() {return maxDamage;}
+
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    public void setMinDamage(int minDamage) {
+        this.minDamage = minDamage;
+    }
+    public void setMaxDamage(int maxDamage) {
+        this.maxDamage = maxDamage;
+    }
 
     protected int calculateDamage() {
         System.out.println("The " + name + "attacks!");
@@ -65,14 +82,7 @@ public abstract class Enemy {
         return damage;
     }
 
-/*
-    public boolean dropLoot() {
-        if (Math.random() * 100 < dropChance) {
-            System.out.println(name + " dropped");
-            return true;
-        } else return false;
-    }
-*/
+
 
     public List<String> dropLoots() {
         List<String> loot = new ArrayList<>();
