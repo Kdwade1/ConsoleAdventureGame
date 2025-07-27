@@ -1,4 +1,4 @@
-package Player;
+package player;
 
 public class Hero extends Player {
     private boolean isCharging; /// using

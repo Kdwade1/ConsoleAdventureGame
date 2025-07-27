@@ -1,7 +1,9 @@
 
-package Enemies;
+package enemies.minion;
 
-public class Ghost extends Enemy {
+import enemies.Enemy;
+
+public class Ghost extends Minion {
 
     public Ghost() {
     super(
@@ -16,8 +18,7 @@ public class Ghost extends Enemy {
             10,
             "Ghost",
             1,
-            1,
-            false
+            3
 
 
             );

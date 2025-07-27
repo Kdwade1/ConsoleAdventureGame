@@ -1,11 +1,11 @@
 package game;
 
-import Enemies.Enemy;
-import Player.Basic;
-import Enemies.Bandit;
-import Enemies.Zombie;
-import Enemies.Witch;
-import Enemies.Ghost;
+import enemies.Enemy;
+import player.Basic;
+import enemies.minion.Bandit;
+import enemies.minion.Zombie;
+import enemies.minion.Witch;
+import enemies.minion.Ghost;
 
 import java.util.List;
 import java.util.Scanner;

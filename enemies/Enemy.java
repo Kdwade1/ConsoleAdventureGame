@@ -1,4 +1,4 @@
-package Enemies;
+package enemies;
 
 
 import java.util.ArrayList;
@@ -14,25 +14,22 @@ public abstract class Enemy {
     int criticalRate;
     int speed;
     int dropChance;
-    int encounterChance;
     int exp;
     int armorValue;
-    boolean isBoss;
 
-    public Enemy(int criticalRate, int armorValue, int dropChance, int exp, int maxDamage, int health, int maxHealth, int missChances, int minDamage, String name, int speed, int encounterChance, boolean isBoss) {
+
+    public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int health,  int missChances,  int speed) {
         this.criticalRate = criticalRate;
         this.dropChance = dropChance;
         this.exp = exp;
         this.maxDamage = maxDamage;
         this.health = health;
-        this.maxHealth = maxHealth;
         this.missChances = missChances;
         this.minDamage = minDamage;
-        this.encounterChance = encounterChance;
         this.name = name;
         this.speed = speed;
         this.armorValue = armorValue;
-        this.isBoss = isBoss;
+
     }
     public String getName() {
         return name;
@@ -108,9 +105,9 @@ public abstract class Enemy {
     public boolean isAlive() {
         return health > 0;
     }
-    public int getEncounterChance() {
-        return encounterChance;
-    }
+//    public int getEncounterChance() {
+//        return encounterChance;
+//    }
 
 }
 
