@@ -13,10 +13,18 @@ public class ManWithTwoDogs extends Boss{
             double boostedMinDamage = getMinDamage() *1.2;
             double boostedMaxDamage = getMaxDamage() *1.2;
             setMinDamage((int) boostedMinDamage);
-            setMinDamage((int) boostedMaxDamage);
+            setMaxDamage((int) boostedMaxDamage);
 
 
         }
+       if((double)health/ getMaxHealth() <0.50&&getPhases()>0){
+           super.nextPhase();
+           System.out.println("My DOGS!!!");
+           double boostedMinDamage = getMinDamage() *2;
+           double boostedMaxDamage = getMaxDamage() *2;
+           setMinDamage((int) boostedMinDamage);
+           setMaxDamage((int) boostedMaxDamage);
+       }
 
     }
 }
