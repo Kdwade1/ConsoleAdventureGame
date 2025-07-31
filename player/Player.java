@@ -45,14 +45,14 @@ public abstract class Player {
 //calculate the actual damage
  protected int calculateDamage() {
         if (Math.random() * 100 < missChances) {
-            System.out.println("Your arrows missed!");
+            System.out.println("Your attack missed!");
             return 0;
 
         }
         int damage = (int) (Math.random() * (maxDamage - minDamage + 1)) + minDamage;
         if (Math.random() * 100 < criticalRate) {
             damage *= 2;
-            System.out.println("HeadShot!");
+            System.out.println("Critical!");
 
 
         }

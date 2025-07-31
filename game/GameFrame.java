@@ -1,7 +1,13 @@
 package game;
 
 import enemies.Enemy;
+import player.Player;
 import player.Basic;
+import player.Archer;
+import player.Knight;
+import player.Hero;
+import player.Tank;
+
 import enemies.minion.Bandit;
 import enemies.minion.Zombie;
 import enemies.minion.Witch;
@@ -12,7 +18,13 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class GameFrame {
-    private Basic player; // Use Basic directly for testing
+    private Player player;
+    private Basic basic; // Use Basic directly for testing
+    private Knight knight;
+    private Archer archer;
+    private Hero hero;
+    private Tank tank;
+
     private Scanner scanner = new Scanner(System.in);
     private boolean running = true;
     private final List<Enemy>enemyPrototype =List.of(
@@ -52,7 +64,49 @@ public class GameFrame {
         slowPrint("Ah, so your name is " + name + "! That's a stupid name... Anyway, let's set you up as a Basic adventurer.\n");
 
         // Create Basic player
-        player = new Basic(name);
+        basic = new Basic(name);
+        knight = new Knight(name);
+        archer= new Archer(name);
+        tank = new Tank(name);
+        hero = new Hero(name);
+
+        System.out.println("\t 1. The Knight");
+        System.out.println("\t 2. The Archer");
+        System.out.println("\t 3. The Tank");
+        System.out.println("\t 4. The Hero");
+        String build = in.nextLine();
+        switch (build) {
+            case "1" -> {
+                slowPrint("Ah you are " + name + " the knight"+  "\n");
+                player= knight;
+
+
+            }
+            case "2" -> {
+                slowPrint("Ah so you're " + name + " the archer" +  "\n");
+                player= archer;
+
+            }
+            case "3" -> {
+                slowPrint("Ah you are " + name + " the Tank" +  "\n");
+                player = tank;
+
+            }
+
+
+            case "4" -> {
+                slowPrint("....So you're " + name + "  the " + hero.name + "! Kinda cheap...\n");
+                player= hero;
+
+            }
+            default -> {
+                System.out.println("So you're .." + name + "  The" +basic.name +"....interesting choice \n");
+                player= basic;
+
+
+            }
+
+        }
 
         slowPrint("You are now " + player.name + " with " + player.health + " health!\n");
 
