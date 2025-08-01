@@ -12,8 +12,11 @@ import enemies.minion.Bandit;
 import enemies.minion.Zombie;
 import enemies.minion.Witch;
 import enemies.minion.Ghost;
+import enemies.bosses.Boss;
+import enemies.bosses.ManWithTwoDogs;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +38,8 @@ public class GameFrame {
 
 
     );
+    private Boss boss;
+    private ManWithTwoDogs manWithTwoDogs;
 
     public static void slowPrint(String output) {
         for (int i = 0; i < output.length(); i++) {
@@ -120,7 +125,7 @@ public class GameFrame {
         switch (confirm) {
             case "y" -> {
                 slowPrint("Fine...Be that way.......\n");
-                Enemy firstEnemy = new Bandit();
+                Enemy firstEnemy = enemyPrototype.get(new Random().nextInt(enemyPrototype.size()));
                 battle(firstEnemy);
             }
             case "n" -> {
@@ -139,11 +144,48 @@ public class GameFrame {
 
 
         }
+        System.out.println(" Well what are we doing today?");
+        System.out.println("1. Fight the boss");
+        System.out.println("2. Enter the gauntlet");
+        String mode=in.nextLine();
+
+        switch (mode) {
+            case "1" -> {
+                slowPrint("Fight the boss");
+
+                battle(manWithTwoDogs);
+
+            }
+            case "2" -> {
+                slowPrint("Enter the gauntlet");
+
+            }
+        }
+
+    }
+    public void runGauntlet(){
+        System.out.println("\n You've step in the gauntlet...You can't escape now...");
+        Enemy[] gauntletEnemy ={
+                new Bandit(),
+                new Zombie(),
+                new Witch(),
+                new Ghost()
+        };
+        for(Enemy enemy: gauntletEnemy){
+            slowPrint("\n next foe appeared");
+            battle(enemy);
+        }
+
+        if (player.getHealth() <= 0) {
+            slowPrint("You fell in the Gauntlet...\n");
+            return;
+        }
+
 
     }
 
     public void battle(Enemy enemy) {
-        slowPrint(" Oh not " + enemy.getName() + " appeared");
+        slowPrint(" Oh no " + enemy.getName() + " appeared");
         while (player.getHealth() > 0 && enemy.isAlive()) {
             System.out.println("\n-------------------------");
             System.out.println("Your HP: " + player.getHealth());
