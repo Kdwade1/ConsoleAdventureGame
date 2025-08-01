@@ -71,9 +71,11 @@ public class GameFrame {
         // Create Basic player
         basic = new Basic(name);
         knight = new Knight(name);
-        archer= new Archer(name);
+        archer = new Archer(name);
         tank = new Tank(name);
         hero = new Hero(name);
+        //bosses
+        manWithTwoDogs = new ManWithTwoDogs();
 
         System.out.println("\t 1. The Knight");
         System.out.println("\t 2. The Archer");
@@ -82,18 +84,18 @@ public class GameFrame {
         String build = in.nextLine();
         switch (build) {
             case "1" -> {
-                slowPrint("Ah you are " + name + " the knight"+  "\n");
-                player= knight;
+                slowPrint("Ah you are " + name + " the knight" + "\n");
+                player = knight;
 
 
             }
             case "2" -> {
-                slowPrint("Ah so you're " + name + " the archer" +  "\n");
-                player= archer;
+                slowPrint("Ah so you're " + name + " the archer" + "\n");
+                player = archer;
 
             }
             case "3" -> {
-                slowPrint("Ah you are " + name + " the Tank" +  "\n");
+                slowPrint("Ah you are " + name + " the Tank" + "\n");
                 player = tank;
 
             }
@@ -101,12 +103,12 @@ public class GameFrame {
 
             case "4" -> {
                 slowPrint("....So you're " + name + "  the " + hero.name + "! Kinda cheap...\n");
-                player= hero;
+                player = hero;
 
             }
             default -> {
-                System.out.println("So you're .." + name + "  The" +basic.name +"....interesting choice \n");
-                player= basic;
+                System.out.println("So you're .." + name + "  The" + basic.name + "....interesting choice \n");
+                player = basic;
 
 
             }
@@ -125,12 +127,11 @@ public class GameFrame {
         switch (confirm) {
             case "y" -> {
                 slowPrint("Fine...Be that way.......\n");
-                Enemy firstEnemy = enemyPrototype.get(new Random().nextInt(enemyPrototype.size()));
-                battle(firstEnemy);
+
             }
             case "n" -> {
                 System.out.println("Thank you for listening!");
-                System.exit(0);
+
 
             }
             default -> {
@@ -144,24 +145,25 @@ public class GameFrame {
 
 
         }
-        System.out.println(" Well what are we doing today?");
-        System.out.println("1. Fight the boss");
-        System.out.println("2. Enter the gauntlet");
-        String mode=in.nextLine();
+        while (true) {
+            System.out.println(" Well what are we doing today?");
+            System.out.println("1. Fight the boss");
+            System.out.println("2. Enter the gauntlet");
+            System.out.print("Select your option: ");
+            String mode = scanner.nextLine();
 
-        switch (mode) {
-            case "1" -> {
-                slowPrint("Fight the boss");
-
+            if (mode.equals("1")) {
+                slowPrint("Fight the boss\n");
                 battle(manWithTwoDogs);
-
-            }
-            case "2" -> {
-                slowPrint("Enter the gauntlet");
-
+                break;
+            } else if (mode.equals("2")) {
+                slowPrint("Enter the gauntlet\n");
+                runGauntlet();
+                break;
+            } else {
+                System.out.println("Invalid input, please enter 1 or 2.");
             }
         }
-
     }
     public void runGauntlet(){
         System.out.println("\n You've step in the gauntlet...You can't escape now...");
