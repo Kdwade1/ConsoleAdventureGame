@@ -8,10 +8,12 @@ import player.Knight;
 import player.Hero;
 import player.Tank;
 
+import enemies.minion.Minion;
 import enemies.minion.Bandit;
 import enemies.minion.Zombie;
 import enemies.minion.Witch;
 import enemies.minion.Ghost;
+
 import enemies.bosses.Boss;
 import enemies.bosses.ManWithTwoDogs;
 
@@ -30,7 +32,7 @@ public class GameFrame {
 
     private Scanner scanner = new Scanner(System.in);
     private boolean running = true;
-    private final List<Enemy>enemyPrototype =List.of(
+    private final List<Enemy> enemyPrototype = List.of(
             new Bandit(),
             new Zombie(),
             new Witch(),
@@ -131,7 +133,7 @@ public class GameFrame {
             }
             case "n" -> {
                 System.out.println("Thank you for listening!");
-
+                System.exit(0);
 
             }
             default -> {
@@ -158,31 +160,59 @@ public class GameFrame {
                 break;
             } else if (mode.equals("2")) {
                 slowPrint("Enter the gauntlet\n");
-                runGauntlet();
+                runGauntletOne();
                 break;
             } else {
                 System.out.println("Invalid input, please enter 1 or 2.");
             }
         }
     }
-    public void runGauntlet(){
+
+    public Enemy getRandomEnemy(Minion[] enemies) {
+        int totalRate = 0;
+        for (Minion m : enemies) {
+            totalRate += m.encounterRate;
+        }
+        int randomValue = new Random().nextInt(totalRate) + 1;
+
+        for (Minion m : enemies) {
+            randomValue -= m.encounterRate;
+            if (randomValue <= 0) {
+                return m;
+            }
+        }
+        return enemies[0];
+    }
+
+
+    public void runGauntletOne() {
         System.out.println("\n You've step in the gauntlet...You can't escape now...");
-        Enemy[] gauntletEnemy ={
+        Minion[] gauntletEnemy = {
                 new Bandit(),
                 new Zombie(),
                 new Witch(),
                 new Ghost()
         };
-        for(Enemy enemy: gauntletEnemy){
-            slowPrint("\n next foe appeared");
+        int rounds = 6;
+
+        for (int i = 0; i < rounds; i++) {
+            Enemy enemy = getRandomEnemy(gauntletEnemy);
+            System.out.println("\n Another Foe has challenged you " + enemy.getName() + " \n");
             battle(enemy);
-        }
 
-        if (player.getHealth() <= 0) {
-            slowPrint("You fell in the Gauntlet...\n");
-            return;
-        }
+            if (i == rounds - 1) {
+                System.out.println("\n Looks like you made it to the boss...");
+                battle(manWithTwoDogs);
 
+            }
+
+            if (player.getHealth() <= 0) {
+                slowPrint("You fell in the Gauntlet...\n");
+                return;
+            }
+
+
+        }
 
     }
 
@@ -210,7 +240,7 @@ public class GameFrame {
             }
 
 
-                }
+        }
         if (player.getHealth() <= 0) {
             System.out.println("Oh what a shame....");
             System.exit(0);
@@ -227,3 +257,4 @@ public class GameFrame {
         }
     }
 }
+
