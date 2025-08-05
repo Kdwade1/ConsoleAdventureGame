@@ -167,7 +167,7 @@ public class GameFrame {
             }
         }
     }
-
+// is how enemies are picked
     public Enemy getRandomEnemy(Minion[] enemies) {
         int totalRate = 0;
         for (Minion m : enemies) {
@@ -178,12 +178,20 @@ public class GameFrame {
         for (Minion m : enemies) {
             randomValue -= m.encounterRate;
             if (randomValue <= 0) {
-                return m;
+                return createFreshMinion(m);
             }
         }
-        return enemies[0];
+        return  new Bandit();
     }
+    public Minion createFreshMinion(Minion m){
+        if (m instanceof Bandit) return new Bandit();
+        if(m instanceof Zombie) return new Zombie();
+        if(m instanceof Witch)return new Witch();
+        if(m instanceof Ghost) return new Ghost();
+        return new Bandit();
 
+    }
+//IS HOW ENEMIES ARE SPAWNED AND BATTLED IN GAUNTLET MODE
 
     public void runGauntletOne() {
         System.out.println("\n You've step in the gauntlet...You can't escape now...");
@@ -215,7 +223,7 @@ public class GameFrame {
         }
 
     }
-
+//TAKES CARE OF BATTLE SYSTEM
     public void battle(Enemy enemy) {
         slowPrint(" Oh no " + enemy.getName() + " appeared");
         while (player.getHealth() > 0 && enemy.isAlive()) {
@@ -242,8 +250,23 @@ public class GameFrame {
 
         }
         if (player.getHealth() <= 0) {
-            System.out.println("Oh what a shame....");
-            System.exit(0);
+            System.out.println("Oh what a shame.... Would you like to try again ");
+            System.out.println("\n A. Try again");
+            System.out.println("\n B. Leave");
+          String option=  scanner.nextLine();
+          switch (option) {
+              case "a" -> {
+                  System.out.println("very well");
+                  player.fullHealth();
+                  runGauntletOne();
+              }
+              case "b" -> {
+                  System.out.println("Smart don't come back.");
+                  System.exit(0);
+              }
+          }
+
+
         } else {
             slowPrint("You defeated the " + enemy.getName() + "!\n");
             List<String> loots = enemy.dropLoots();

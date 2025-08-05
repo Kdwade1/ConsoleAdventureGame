@@ -108,6 +108,9 @@ return damage;
     public int getMaxHealth(){
         return maxHealth;
     }
+    public void fullHealth(){
+        this.health =this.maxHealth;
+    }
 
     public abstract void specialAttack();
 
