@@ -16,10 +16,10 @@ public abstract class Player {
     int inventorySlot;
     int level;
     int exp;
-    int expToNextLevel;
+    double expToNextLevel;
 // constructor
     public Player(String name, int health, int maxHealth, int minDamage, int maxDamage,
-                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot,int level,int exp,int expToNextLevel) {
+                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot,double expToNextLevel) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;

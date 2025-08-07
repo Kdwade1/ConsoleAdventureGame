@@ -6,7 +6,7 @@ public class Hero extends Player {
 
 
     public Hero(String name) {
-        super(name + " the Hero", 200, 200, 20, 100, 10, 50, 50, 5, 0,1,1,1);
+        super(name + " the Hero", 200, 200, 20, 100, 10, 50, 50, 5, 0,1,1,1,200);
         this.isCharging = false;
         this.chargeDamage = 0;
 
@@ -37,5 +37,15 @@ public class Hero extends Player {
             damage += amplifiedDamage;
         }
         super.takeDamage(damage);
+    }
+
+    @Override
+    public void levelUp() {
+        maxHealth += 20;
+        minDamage+= 10;
+        maxDamage+=10;
+        fullHealth();
+        expToNextLevel*=1.5;
+        System.out.println("💪 " + name + " leveled up to level " + level + "! Stats increased!");
     }
 }
