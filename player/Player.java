@@ -14,9 +14,12 @@ public abstract class Player {
     int specialMeter;
     int maxSpecialMeter;
     int inventorySlot;
+    int level;
+    int exp;
+    int expToNextLevel;
 // constructor
     public Player(String name, int health, int maxHealth, int minDamage, int maxDamage,
-                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot) {
+                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot,int level,int exp,int expToNextLevel) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;
@@ -30,6 +33,9 @@ public abstract class Player {
         this.specialMeter = specialMeter;
         this.maxSpecialMeter = maxSpecialMeter;
         this.inventorySlot = inventorySlot;
+        this.level=1;
+        this.exp=0;
+        this.expToNextLevel=expToNextLevel;
     }
 
     public int getNumberOfPotions(){
@@ -111,6 +117,14 @@ return damage;
     public void fullHealth(){
         this.health =this.maxHealth;
     }
+    public void gainExp(int amount){
+        System.out.println(name+" gained exp:"+ exp);
+        exp+= amount;
+        while (exp >= expToNextLevel){
+            levelUp();
+        }
+    }
+    public abstract void levelUp();
 
     public abstract void specialAttack();
 

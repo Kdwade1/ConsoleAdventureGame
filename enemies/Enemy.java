@@ -119,5 +119,7 @@ public abstract class Enemy {
 //        return encounterChance;
 //    }
 
+
+
 }
 
