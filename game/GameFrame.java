@@ -181,7 +181,7 @@ public class GameFrame {
                 return createFreshMinion(m);
             }
         }
-        return  new Bandit();
+        return createFreshMinion(enemies[0]);
     }
     public Minion createFreshMinion(Minion m){
         if (m instanceof Bandit) return new Bandit();
@@ -269,6 +269,7 @@ public class GameFrame {
 
         } else {
             slowPrint("You defeated the " + enemy.getName() + "!\n");
+            player.gainExp(enemy.getExp());
             List<String> loots = enemy.dropLoots();
             if (loots.isEmpty()) {
                 System.out.println("The enemy dropped nothing.");

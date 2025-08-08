@@ -19,16 +19,16 @@ public abstract class Enemy {
 
 
     public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int health,  int missChances,  int speed) {
-        this.criticalRate = criticalRate;
-        this.dropChance = dropChance;
-        this.exp = exp;
-        this.maxDamage = maxDamage;
-        this.health = health;
-        this.missChances = missChances;
-        this.minDamage = minDamage;
-        this.name = name;
-        this.speed = speed;
-        this.armorValue = armorValue;
+       this.name = name;
+       this.criticalRate = criticalRate;
+       this.armorValue = armorValue;
+       this.dropChance = dropChance;
+       this.exp = exp;
+       this.maxDamage = maxDamage;
+       this.minDamage = minDamage;
+       this.health = health;
+       this.missChances = missChances;
+       this.speed = speed;
 
     }
     public String getName() {
@@ -42,6 +42,7 @@ public abstract class Enemy {
     }
     public int getMinDamage() {return minDamage;}
     public int getMaxDamage() {return maxDamage;}
+    public int getExp() {return exp;}
 
 
     public void setHealth(int health) {
@@ -57,6 +58,7 @@ public abstract class Enemy {
     public void setMaxDamage(int maxDamage) {
         this.maxDamage = maxDamage;
     }
+    public void setExp(int exp) {this.exp= exp;}
 
     protected int calculateDamage() {
         System.out.println("The " + name + "attacks!");

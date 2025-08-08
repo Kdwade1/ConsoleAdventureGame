@@ -23,6 +23,8 @@ public class Tank extends Player {
 
     @Override
     public void specialAttack() {
+        System.out.println(name+ " healed");
+        fullHealth();
 
     }
 }
