@@ -8,7 +8,7 @@ public class Basic extends Player {
 
     @Override
     public void levelUp() {
-
+        level++;
     }
 
     @Override

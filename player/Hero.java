@@ -46,6 +46,7 @@ public class Hero extends Player {
         maxDamage+=10;
         fullHealth();
         expToNextLevel*=1.5;
+        level++;
         System.out.println("💪 " + name + " leveled up to level " + level + "! Stats increased!");
     }
 }

@@ -118,7 +118,7 @@ return damage;
         this.health =this.maxHealth;
     }
     public void gainExp(int amount){
-        System.out.println(name+" gained exp:"+ exp);
+        System.out.println(name+" gained exp:"+ amount+" total exp "+exp);
         exp+= amount;
         while (exp >= expToNextLevel){
             levelUp();

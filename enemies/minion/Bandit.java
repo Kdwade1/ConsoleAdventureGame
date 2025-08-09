@@ -4,7 +4,8 @@ import enemies.Enemy;
 
 public class Bandit extends Minion {
 
+
     public Bandit() {
-        super("The Bandit",30,1,20,30,5,7,25,30,10,40,50);
+        super("The Bandit",30,5,50,100,10,5,20,30,10,2,35);
     }
 }

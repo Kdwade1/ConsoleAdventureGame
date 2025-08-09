@@ -7,7 +7,21 @@ public class Witch extends Minion {
 
 
     public Witch() {
-        super(30,0,40,10,10,15,20,10,5,"The Witch",20,10);
+        super(
+                "The Witch",
+                30,
+                5,
+                50,
+                100,
+                10,
+                15,
+                15,
+                20,
+                30,
+                30,
+                10
+        );
+
     }
 }
 

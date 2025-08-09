@@ -2,7 +2,7 @@ package enemies.bosses;
 
 public class ManWithTwoDogs extends Boss{
     public ManWithTwoDogs() {
-        super("Man With Two Dogs",20,20,100,100,10,5,100,10,10,true,3);
+        super("Man With Two Dogs",20,20,100,100,10,5,100,250,10,40,true,3);
     }
 
     @Override

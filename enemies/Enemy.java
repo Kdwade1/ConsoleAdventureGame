@@ -18,7 +18,7 @@ public abstract class Enemy {
     int armorValue;
 
 
-    public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int health,  int missChances,  int speed) {
+    public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int health,int maxHealth,  int missChances,  int speed) {
        this.name = name;
        this.criticalRate = criticalRate;
        this.armorValue = armorValue;
@@ -27,6 +27,7 @@ public abstract class Enemy {
        this.maxDamage = maxDamage;
        this.minDamage = minDamage;
        this.health = health;
+       this.maxHealth = maxHealth;
        this.missChances = missChances;
        this.speed = speed;
 

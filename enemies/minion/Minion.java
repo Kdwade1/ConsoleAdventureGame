@@ -6,18 +6,18 @@ public class Minion extends Enemy {
     public int encounterRate;
 
     public Minion(
-            String name,           // 1
-            int criticalRate,      // 2
-            int armorValue,        // 3
-            int dropChance,        // 4
-            int exp,               // 5
-            int maxDamage,         // 6
-            int minDamage,         // 7
-            int health,            // 8
-            int missChances,       // 9
-            int speed,             // 10
-            int maxHealth,         // 11 (extra)
-            int encounterRate      // 12 (extra)
+            String name,
+            int criticalRate,
+            int armorValue,
+            int dropChance,
+            int exp,
+            int maxDamage,
+            int minDamage,
+            int health,
+            int maxHealth,
+            int missChances,
+            int speed,
+            int encounterRate   // 12 (extra)
     ) {
         super(
                 name,
@@ -28,6 +28,7 @@ public class Minion extends Enemy {
                 maxDamage,
                 minDamage,
                 health,
+                maxHealth,
                 missChances,
                 speed
         );

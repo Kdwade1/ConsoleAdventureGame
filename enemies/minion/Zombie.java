@@ -5,7 +5,8 @@ import enemies.Enemy;
 
 public class Zombie extends Minion {
     public Zombie() {
-        super(1,0,2,5,5,20,27,10,1,"Zombie",5,40);
+        super("Zombie",10,0,10,100,10,20,20,25,10,10,55);
+
 
     }
 

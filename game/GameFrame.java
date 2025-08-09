@@ -201,7 +201,7 @@ public class GameFrame {
                 new Witch(),
                 new Ghost()
         };
-        int rounds = 6;
+        int rounds = 10;
 
         for (int i = 0; i < rounds; i++) {
             Enemy enemy = getRandomEnemy(gauntletEnemy);
