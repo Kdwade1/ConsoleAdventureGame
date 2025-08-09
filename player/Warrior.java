@@ -4,7 +4,7 @@ import player.Player;
 
 public class Warrior extends Player {
 
-    public Warrior() {
+    public Warrior(String name) {
         super(" The Warrior ", 100,200, 10, 600, 20, 20, 40, 2, 50, 3, 7, 5, 100);
     }
 

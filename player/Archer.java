@@ -8,9 +8,9 @@ public class Archer extends Player{
 
     @Override
     public void levelUp() {
-        maxHealth += 5;
-        minDamage+= 5;
-        maxDamage += 5;
+        maxHealth *=1.1;
+        minDamage*= 1.5;
+        maxDamage *= 1.5;
         fullHealth();
         expToNextLevel *=1.5;
         level++;

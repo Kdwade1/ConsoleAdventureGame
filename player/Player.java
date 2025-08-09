@@ -2,24 +2,26 @@ package player;
 
 public abstract class Player {
     public String name;
-    public int health;
-    int maxHealth;
-    int minDamage;
-    int maxDamage;
-    int missChances;
-    int criticalRate;
-    int speed;
+    public double health;
+    double maxHealth;
+    double minDamage;
+    double maxDamage;
+    double missChances;
+    double criticalRate;
+    double speed;
     private int numberOfPotions;
-    int runChance;
-    int specialMeter;
-    int maxSpecialMeter;
+    double runChance;
+    double specialMeter;
+    double maxSpecialMeter;
     int inventorySlot;
     int level;
-    int exp;
+    double exp;
     double expToNextLevel;
-// constructor
-    public Player(String name, int health, int maxHealth, int minDamage, int maxDamage,
-                  int missChances, int criticalRate, int speed, int numberOfPotions, int runChance, int specialMeter, int maxSpecialMeter,int inventorySlot,double expToNextLevel) {
+
+    // constructor
+    public Player(String name, double health, double maxHealth, double minDamage, double maxDamage,
+                  double missChances, double criticalRate, double speed, int numberOfPotions, double runChance,
+                  double specialMeter, double maxSpecialMeter, int inventorySlot, double expToNextLevel) {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;
@@ -33,51 +35,46 @@ public abstract class Player {
         this.specialMeter = specialMeter;
         this.maxSpecialMeter = maxSpecialMeter;
         this.inventorySlot = inventorySlot;
-        this.level=1;
-        this.exp=0;
-        this.expToNextLevel=expToNextLevel;
+        this.level = 1;
+        this.exp = 0;
+        this.expToNextLevel = expToNextLevel;
     }
 
-    public int getNumberOfPotions(){
+    public int getNumberOfPotions() {
         return numberOfPotions;
     }
-    public void setNumberOfPotions(int numberOfPotions){
-        if(numberOfPotions <0){
-            this.numberOfPotions = 0;
-        }else{
-            this.numberOfPotions = numberOfPotions;
-        }
+
+    public void setNumberOfPotions(int numberOfPotions) {
+        this.numberOfPotions = Math.max(0, numberOfPotions);
     }
-//calculate the actual damage
- protected int calculateDamage() {
+
+    // Calculate the actual damage (rounded down to int)
+    protected int calculateDamage() {
         if (Math.random() * 100 < missChances) {
             System.out.println("Your attack missed!");
             return 0;
-
         }
-        int damage = (int) (Math.random() * (maxDamage - minDamage + 1)) + minDamage;
+        double damage = (Math.random() * (maxDamage - minDamage)) + minDamage;
         if (Math.random() * 100 < criticalRate) {
             damage *= 2;
             System.out.println("Critical!");
-
-
         }
-
-return damage;
+        return (int) damage;
     }
-    //calculates  attack
+
+    // Attack returns int damage dealt
     public int attack() {
         int damage = calculateDamage();
         System.out.println(name + " dealt " + damage + " damage!");
         return damage;
     }
-//use Potion
+
+    // Use potion restores fixed amount
     public void usePotion() {
         if (numberOfPotions > 0) {
             health += 20;
             if (health > maxHealth) {
                 health = maxHealth;
-
             }
             numberOfPotions--;
             System.out.println(name + " used a potion. Current health: " + health);
@@ -85,55 +82,58 @@ return damage;
             System.out.println(name + " has no potions left!");
         }
     }
-//calculates getting hit
-    public void takeDamage(int damage){
-       if (damage <0){
-           System.out.println(name + "took no damage");
-           return;
-       }
-       health -= damage;
-       if (health <= 0){
-           health= 0;
-       }
 
-       }
-    public void buildSpecialMeter(int amount){
+    // Take damage decreases health (damage is int)
+    public void takeDamage(int damage) {
+        if (damage < 0) {
+            System.out.println(name + " took no damage");
+            return;
+        }
+        health -= damage;
+        if (health < 0) {
+            health = 0;
+        }
+    }
+
+    public void buildSpecialMeter(double amount) {
         specialMeter += amount;
         if (specialMeter > maxSpecialMeter) {
             specialMeter = maxSpecialMeter;
         }
-        System.out.println(name+"s special meter:"+ specialMeter +"/"+maxSpecialMeter );
-
+        System.out.println(name + "'s special meter: " + specialMeter + "/" + maxSpecialMeter);
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public int getHealth(){
-        return health;
+
+    // Return current health as int (rounded down)
+    public int getHealth() {
+        return (int) health;
     }
-    public int getMaxHealth(){
-        return maxHealth;
+
+    // Return max health as int (rounded down)
+    public int getMaxHealth() {
+        return (int) maxHealth;
     }
-    public void fullHealth(){
-        this.health =this.maxHealth;
+
+    public void fullHealth() {
+        this.health = this.maxHealth;
     }
-    public void gainExp(int amount){
-        System.out.println(name+" gained exp:"+ amount+" total exp "+exp);
-        exp+= amount;
-        while (exp >= expToNextLevel){
+
+    // Gain exp, amount is int for consistency, exp is double
+    public void gainExp(int amount) {
+        exp += amount;
+        System.out.println(name + " gained exp: " + amount + ", total exp: " + exp);
+        while (exp >= expToNextLevel) {
             levelUp();
         }
     }
+
     public abstract void levelUp();
 
     public abstract void specialAttack();
-
-
 }
-
-
-
-
 
 
 
