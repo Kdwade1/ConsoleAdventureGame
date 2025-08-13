@@ -6,8 +6,9 @@ import java.util.List;
 
 public abstract class Enemy {
     public String name;
-    public int health;
+    public int minHealth;
     int maxHealth;
+    int currentHealth;
     int minDamage;
     int maxDamage;
     int missChances;
@@ -18,7 +19,7 @@ public abstract class Enemy {
     int armorValue;
 
 
-    public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int health,int maxHealth,  int missChances,  int speed) {
+    public Enemy(String name,int criticalRate, int armorValue, int dropChance, int exp, int maxDamage,int minDamage, int minHealth,int maxHealth,int currentHealth,  int missChances,  int speed) {
        this.name = name;
        this.criticalRate = criticalRate;
        this.armorValue = armorValue;
@@ -26,8 +27,9 @@ public abstract class Enemy {
        this.exp = exp;
        this.maxDamage = maxDamage;
        this.minDamage = minDamage;
-       this.health = health;
+       this.minHealth = minHealth;
        this.maxHealth = maxHealth;
+       this.currentHealth = currentHealth;
        this.missChances = missChances;
        this.speed = speed;
 
@@ -35,8 +37,8 @@ public abstract class Enemy {
     public String getName() {
         return name;
     }
-    public int getHealth() {
-        return health;
+    public int getMinHealth() {
+        return minHealth;
     }
     public int getMaxHealth() {
         return maxHealth;
@@ -47,7 +49,7 @@ public abstract class Enemy {
 
 
     public void setHealth(int health) {
-        this.health = health;
+        this.minHealth = health;
     }
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
@@ -105,10 +107,10 @@ public abstract class Enemy {
         if (reducedDamage == 0) {
             reducedDamage = 1;
         }
-        health -= reducedDamage;
+        currentHealth -= reducedDamage;
 
-        if (health <= 0) {
-            health = 0;
+        if (currentHealth <= 0) {
+            currentHealth = 0;
             System.out.println(name + " has been slain");
             dropLoots();
 
@@ -116,7 +118,7 @@ public abstract class Enemy {
 
     }
     public boolean isAlive() {
-        return health > 0;
+        return currentHealth > 0;
     }
 //    public int getEncounterChance() {
 //        return encounterChance;
