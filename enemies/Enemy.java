@@ -29,9 +29,12 @@ public abstract class Enemy {
        this.minDamage = minDamage;
        this.minHealth = minHealth;
        this.maxHealth = maxHealth;
-       this.currentHealth = currentHealth;
+
        this.missChances = missChances;
        this.speed = speed;
+
+
+        this.currentHealth = (int) (Math.random() * (maxHealth - minHealth + 1)) + minHealth;
 
     }
     public String getName() {

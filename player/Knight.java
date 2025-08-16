@@ -3,7 +3,20 @@ package player;
 public class Knight extends Player {
 
     public Knight(String name) {
-        super(name, 30,110, 5, 10, 10, 20,5, 3, 40, 4, 8, 5,60);
+        super(name,
+                30,
+                110,
+                5,
+                10,
+                10,
+                20,
+                5,
+                3,
+                40,
+                4,
+                8,
+                5,
+                60);
     }
 
     @Override
