@@ -6,6 +6,18 @@ public class Bandit extends Minion {
 
 
     public Bandit() {
-        super("The Bandit",30,5,50,100,10,5,20,30,10,2,35);
+        super("The Bandit",
+                30,
+                5,
+                50,
+                100,
+                10,
+                5,
+                20,
+                30,
+                0,
+                2,
+                35,
+                40);
     }
 }

@@ -46,6 +46,7 @@ public abstract class Enemy {
     public int getMaxHealth() {
         return maxHealth;
     }
+    public int getCurrentHealth() {return currentHealth;}
     public int getMinDamage() {return minDamage;}
     public int getMaxDamage() {return maxDamage;}
     public int getExp() {return exp;}

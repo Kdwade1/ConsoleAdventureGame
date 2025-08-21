@@ -17,9 +17,10 @@ public class Witch extends Minion {
                 15,
                 15,
                 20,
+                0,
                 30,
-                30,
-                10
+                10,
+                15
         );
 
     }

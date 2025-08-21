@@ -216,7 +216,7 @@ public class GameFrame {
         while (player.getHealth() > 0 && enemy.isAlive()) {
             System.out.println("\n-------------------------");
             System.out.println("Your HP: " + player.getHealth());
-            System.out.println(enemy.getName() + " HP: " + enemy.getHealth());
+            System.out.println(enemy.getName() + " HP: " + enemy.getCurrentHealth());
             System.out.println("-------------------------");
 
             System.out.println("Choose your action: [A]ttack or [P]otion");

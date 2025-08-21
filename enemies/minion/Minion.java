@@ -13,11 +13,12 @@ public class Minion extends Enemy {
             int exp,
             int maxDamage,
             int minDamage,
-            int health,
+            int minHealth,
             int maxHealth,
+            int currentHealth,
             int missChances,
             int speed,
-            int encounterRate   // 12 (extra)
+            int encounterRate
     ) {
         super(
                 name,
@@ -27,13 +28,13 @@ public class Minion extends Enemy {
                 exp,
                 maxDamage,
                 minDamage,
-                health,
+                minHealth,   // ✅ correct order
                 maxHealth,
+                currentHealth,
                 missChances,
                 speed
         );
 
-        setMaxHealth(maxHealth);
         this.encounterRate = encounterRate;
     }
 

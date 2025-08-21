@@ -14,11 +14,12 @@ public class Ghost extends Minion {
                 100,
                 5,
                 10,
-                30,
+                15,
                 60,
-                5,
+                0,
                 20,
-                5
+                5,
+                10
         );
 
     }

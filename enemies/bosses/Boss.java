@@ -9,8 +9,8 @@ public class Boss extends Enemy {
 
 
 
-    public Boss(String name, int criticalRate, int armorValue, int dropChance, int exp, int maxDamage, int minDamage, int health,int maxHealth, int missChances, int speed, boolean hasPhase, int phases){
-        super(name, criticalRate, armorValue, dropChance, exp, maxDamage, minDamage, health,maxHealth, missChances, speed);
+    public Boss(String name, int criticalRate, int armorValue, int dropChance, int exp, int maxDamage, int minDamage, int minHealth,int maxHealth, int missChances, int speed, boolean hasPhase, int phases){
+        super(name, criticalRate, armorValue, dropChance, exp, maxDamage, minDamage, minHealth,maxHealth,0, missChances, speed);
         this.hasPhase = hasPhase;
         this.phases =phases;
 

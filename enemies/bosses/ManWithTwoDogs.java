@@ -7,7 +7,7 @@ public class ManWithTwoDogs extends Boss{
 
     @Override
     public void nextPhase() {
-       if ((double) health/getMaxHealth()  < 0.75&& getPhases()>0){
+       if ((double) getCurrentHealth()/getMaxHealth()  < 0.75&& getPhases()>0){
           super.nextPhase();
             System.out.println("Oh no one of my dogs");
             double boostedMinDamage = getMinDamage() *1.2;
@@ -17,7 +17,7 @@ public class ManWithTwoDogs extends Boss{
 
 
         }
-       if((double)health/ getMaxHealth() <0.50&&getPhases()>0){
+       if((double)getCurrentHealth()/ getMaxHealth() <0.50&&getPhases()>0){
            super.nextPhase();
            System.out.println("My DOGS!!!");
            double boostedMinDamage = getMinDamage() *2;
